@@ -15,10 +15,10 @@ const NFTCountdown = ( {nft} ) => {
             const updateTimer = () => {
                
             const startTime = Date.now();
-            console.log(startTime)
+            
 
             let expirationDate = nft.expiryDate - startTime;
-            console.log(expirationDate)
+           
 
             if(expirationDate <= 0) {
                 setTimeLeft("EXPIRED");
@@ -35,7 +35,7 @@ const NFTCountdown = ( {nft} ) => {
 
            
     }
-           /*updateTimer()*/
+         
 
            animationID = requestAnimationFrame(updateTimer); 
 

@@ -14,7 +14,6 @@ const Author = () => {
 const authorIdInfo = async() => {
       try{
         const response = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`)
-        console.log(response.data)
         setData(response.data)
          
       }

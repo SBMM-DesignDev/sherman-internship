@@ -123,16 +123,7 @@ const TopSellerInfo = ( { seller } ) => {
                </>
           );
 
-            /*<div className="skeleton authorName__skeleton"
-                      style={{
-                         position: "absolute",
-                        width: "16px",
-                        height: "8px",
-                        backgroundColor: "red",
-                        left: "75px",
-                        opacity: "1",
-                      }}
-                      ></div>*/
+        
 };
 
 export default TopSellerInfo;

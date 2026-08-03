@@ -7,7 +7,7 @@ const AuthorItems = ( { nftCollection, authorImage } ) => {
   console.log(nftCollection)
 
   if (!nftCollection || !Array.isArray(nftCollection)) {
-    return null; // Or render a skeleton/loading placeholder here
+    return null; 
   }
 
   return (
