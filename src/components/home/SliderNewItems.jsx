@@ -66,7 +66,7 @@ return (
                                {!isLoaded ? <div className="author_list_pp" style={{display:"none"}} ></div> 
                                :<div className="author_list_pp">
                                   <Link
-                                    to="/author"
+                                    to={`/author/${nft.authorId}`}
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="top"
                                     title="Creator: Monica Lucas"
@@ -117,7 +117,7 @@ return (
 
                                                             
                                                           )} 
-                                          <Link to="/item-details">
+                                          <Link to={`/item-details/${nft.nftId}`}>
                                             <img
                                               src={nft.nftImage}
                                               className="lazy nft__item_preview"

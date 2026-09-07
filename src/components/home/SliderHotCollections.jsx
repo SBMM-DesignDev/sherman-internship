@@ -78,7 +78,7 @@ const NFTCard = ( {nft} ) => {
                   
                       <div className="nft_coll" >
                           <div className="nft_wrap" style={{ opacity: isLoaded ? 1 : 0, transition: "opacity 0.3s ease" }} >
-                              <Link to="/item-details">
+                              <Link to={`/item-details/${nft.nftId}`}>
                                   <img src={nft.nftImage} 
                                         className="lazy img-fluid" 
                                         
@@ -94,7 +94,7 @@ const NFTCard = ( {nft} ) => {
                          {!isLoaded ? <div className="nft_coll_pp nft_coll_info" style={{display: "none"}} ></div> 
                          :
                          <div className="nft_coll_pp">
-                              <Link to="/author">
+                              <Link to={`/author/${nft.authorId}`}>
                                   <img className="lazy pp-coll" src={nft.authorImage} alt="Author's Picture" />
                               </Link>
                               <i className="fa fa-check"></i>

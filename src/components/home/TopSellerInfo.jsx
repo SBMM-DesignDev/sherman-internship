@@ -14,7 +14,7 @@ const TopSellerInfo = ( { seller } ) => {
 
     const image = new Image();
    image.src = seller.authorImage;
-   console.log(seller.authorImage)
+  
    image.onload = () => {
    
     setTimeout(() =>{
