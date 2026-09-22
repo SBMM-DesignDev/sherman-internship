@@ -4,8 +4,21 @@ import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import axios from 'axios'
 import SliderHotCollections from "./SliderHotCollections";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const HotCollections = () => {
+
+  useEffect(() => {
+          setTimeout(() => {
+             AOS.init({
+            duration: "1000"
+          });
+          },300)
+         
+        },[])
+
+
   const [data, setData] = useState([])
 
    const hotCollectionsInfo = async () => {
@@ -33,7 +46,11 @@ const HotCollections = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Hot Collections</h2>
+              <h2 data-aos="fade"
+                  data-aos-once="true"
+                  data-aos-anchor-placement="top-bottom">
+                    Hot Collections
+              </h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>

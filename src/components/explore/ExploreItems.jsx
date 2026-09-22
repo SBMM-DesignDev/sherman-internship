@@ -18,7 +18,7 @@ const exploreAPI = async () => {
   try{
 
     const response = await axios.get("https://us-central1-nft-cloud-functions.cloudfunctions.net/explore")
-    console.log(response.data)
+   
     setData(response.data)
   }
   catch(error){
@@ -57,9 +57,18 @@ return (
                 to={`/author/${item.authorId}`}
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
+                data-aos="fade"
+                data-aos-once="true"
+                data-aos-anchor-placement="top-bottom"
               >
-                <img className="lazy" src={item.authorImage} alt="" />
-                <i className="fa fa-check"></i>
+                <img className="lazy" src={item.authorImage} alt="" 
+                     data-aos="fade"
+                     data-aos-once="true"
+                     data-aos-anchor-placement="top-bottom"/>
+                <i className="fa fa-check"
+                   data-aos="fade"
+                   data-aos-once="true"
+                   data-aos-anchor-placement="top-bottom"></i>
               </Link>
             </div>
               {item.expiryDate &&
@@ -86,17 +95,38 @@ return (
                 </div>
               </div>
               <Link to={`/item-details/${item.nftId}`}>
-                <img src={item.nftImage} className="lazy nft__item_preview" alt="" />
+                <img src={item.nftImage} className="lazy nft__item_preview" alt="" 
+                      data-aos="fade"
+                      data-aos-once="true"
+                      data-aos-anchor-placement="top-bottom"/>
               </Link>
             </div>
             <div className="nft__item_info">
               <Link to="/item-details">
-                <h4>{item.title}</h4>
+                <h4 data-aos="fade"
+                    data-aos-once="true"
+                    data-aos-anchor-placement="top-bottom">
+                      {item.title}
+                </h4>
               </Link>
-              <div className="nft__item_price">{item.price} ETH</div>
+              <div className="nft__item_price" 
+                   data-aos="fade"
+                   data-aos-once="true"
+                   data-aos-anchor-placement="top-bottom">
+                    {item.price} ETH
+              </div>
               <div className="nft__item_like">
-                <i className="fa fa-heart"></i>
-                <span>{item.likes}</span>
+                <i className="fa fa-heart"
+                   data-aos="fade"
+                   data-aos-once="true"
+                   data-aos-anchor-placement="top-bottom">
+               </i>
+                <span 
+                    data-aos="fade"
+                    data-aos-once="true"
+                    data-aos-anchor-placement="top-bottom">
+                      {item.likes}
+                </span>
               </div>
             </div>
           </div>
@@ -104,7 +134,12 @@ return (
       ))}
       <div className="col-md-12 text-center">
         {addItems < data.length &&
-        <Link to="" id="loadmore" className="btn-main lead" onClick={addArrayItems}>
+        <Link to="" id="loadmore" 
+              className="btn-main lead" 
+              onClick={addArrayItems}
+              data-aos="fade"
+              data-aos-once="true"
+              data-aos-anchor-placement="top-bottom">
           Load more
         </Link>
         }

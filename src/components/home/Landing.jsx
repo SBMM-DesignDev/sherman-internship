@@ -11,8 +11,8 @@ const Landing = () => {
     setTimeout(() => {
        AOS.init({
       duration: "1000"
-    }, 300);
-    })
+    });
+    },300)
    
   },[])
 

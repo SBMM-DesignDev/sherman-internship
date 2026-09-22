@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
@@ -32,6 +34,15 @@ const TopSellerInfo = ( { seller } ) => {
 
   },[seller.authorImage])
 
+    useEffect(() => {
+            setTimeout(() => {
+               AOS.init({
+              duration: "1000"
+            });
+            },300)
+           
+          },[])
+
 
     return(   
     <>
@@ -44,13 +55,27 @@ const TopSellerInfo = ( { seller } ) => {
                         className="lazy pp-author"
                         src={img.src}
                         alt=""
+                        data-aos="fade"
+                        data-aos-once="true"
+                        data-aos-anchor-placement="top-bottom"
                       />
-                      <i className="fa fa-check"></i>
+                      <i className="fa fa-check"
+                         data-aos="fade"
+                         data-aos-once="true"
+                         data-aos-anchor-placement="top-bottom"></i>
                     </Link>
                   </div>
                   <div className="author_list_info">
-                    <Link to={`/author/${seller.authorId}`}>{seller.authorName}</Link>
-                    <span>{seller.price} ETH</span>
+                    <Link to={`/author/${seller.authorId}`} 
+                          data-aos="fade" data-aos-once="true" 
+                          data-aos-anchor-placement="top-bottom">
+                        {seller.authorName}
+                    </Link>
+                    <span data-aos="fade" 
+                          data-aos-once="true" 
+                          data-aos-anchor-placement="top-bottom">
+                        {seller.price} ETH
+                    </span>
                   </div> 
                   </>)
                   :

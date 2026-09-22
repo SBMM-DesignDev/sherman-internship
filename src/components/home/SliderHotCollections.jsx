@@ -1,13 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
-
 import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css"
+import "slick-carousel/slick/slick-theme.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 
 const SliderHotCollections = ( { data } ) => {
     
+    const [isLoaded, setIsLoaded] = useState(false)
+    
+    
+       useEffect(() => {
+              let timer;
+    
+               if(isLoaded) {
+               timer = setTimeout(() => {
+                   AOS.init({
+                  duration: "1000"});
+                },300)
+    
+                return () => clearTimeout(timer)
+    
+               }
+            },[isLoaded]);  
 
 
     const settings = {
@@ -57,6 +75,29 @@ return (
 const NFTCard = ( {nft} ) => {
 
             const [isLoaded, setIsLoaded] = useState(false)
+               const timeoutRef = useRef(null);
+                     
+               
+                     useEffect(() => {
+                       return () => {
+                         if(timeoutRef.current) {
+                           clearTimeout(timeoutRef.current)
+                         }
+                       }
+                     }, []) 
+           
+                     const imageOnLoad = () => {
+                       timeoutRef.current = setTimeout(() => {
+                         setIsLoaded(true);
+                       }, 300)
+                     };
+
+
+
+
+
+
+
             return( <div style={{ position: "relative", 
                           minHeight: "380px" }}>
                               {!isLoaded &&  (
@@ -77,17 +118,18 @@ const NFTCard = ( {nft} ) => {
                       
                   
                       <div className="nft_coll" >
-                          <div className="nft_wrap" style={{ opacity: isLoaded ? 1 : 0, transition: "opacity 0.3s ease" }} >
+                          <div className="nft_wrap" 
+                          style={{ opacity: isLoaded ? 1 : 0, transition: "opacity 0.3s ease" }}
+                           >
                               <Link to={`/item-details/${nft.nftId}`}>
                                   <img src={nft.nftImage} 
                                         className="lazy img-fluid" 
                                         
-                                        onLoad = {() => {
-                                               setTimeout(() => { 
-                                                 setIsLoaded(true);
-                                                 }, 300)
-                                              }}
+                                        onLoad ={imageOnLoad}
                                         alt="" 
+                                        data-aos="fade"
+                                        data-aos-once="true"
+                                        data-aos-anchor-placement="top-bottom"
                                   />
                               </Link>
                           </div>

@@ -7,8 +7,20 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css"
 import axios from "axios";
 import SliderNewItems from "./SliderNewItems.jsx";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const NewItems = () => {
+
+  useEffect(() => {
+          setTimeout(() => {
+             AOS.init({
+            duration: "1000"
+          });
+          },300)
+         
+        },[])
 
   const [data, setData] = useState([]);
 
@@ -38,7 +50,11 @@ const NewItems = () => {
                 <div className="col-lg-12">
                   <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12"></div>
                   <div className="text-center">
-                    <h2>New Items</h2>
+                    <h2 data-aos="fade"
+                        data-aos-once="true"
+                        data-aos-anchor-placement="top-bottom">
+                          New Items
+                    </h2>
                     <div className="small-border bg-color-2"></div>
                   </div>
                 </div>

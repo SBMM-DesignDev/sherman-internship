@@ -7,15 +7,19 @@ import axios from "axios";
 const Author = () => {
   
   const [data, setData] = useState({});
+   const [addFollower, setAddFollower] = useState(0)
+    const [follow, setFollow] = useState(false);
 
   const {authorId} = useParams();
-  console.log(authorId)
+  
 
 const authorIdInfo = async() => {
       try{
         const response = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`)
        
         setData(response.data)
+        setAddFollower(response.data.followers || 0)
+        
         
          
       }
@@ -29,6 +33,21 @@ useEffect(() => {
 },[])
   
 
+    const userFollow = (event) => {
+       event.preventDefault();
+
+        if(follow) {
+        setAddFollower((prev) => prev - 1)
+        setFollow(false)
+           
+      }
+      else {
+        
+        setAddFollower((prev) => prev + 1)
+        setFollow(true)
+      }
+     
+    }
 
   return (
     <div id="wrapper">
@@ -69,9 +88,9 @@ useEffect(() => {
                   </div>
                   <div className="profile_follow de-flex">
                     <div className="de-flex-col">
-                      <div className="profile_follower">{data.followers} Followers</div>
-                      <Link to="#" className="btn-main">
-                        Follow
+                      <div className="profile_follower">{addFollower} Followers</div>
+                      <Link to="#" className="btn-main" onClick={userFollow}>
+                        { follow ? "Unfollow" : "Follow"}
                       </Link>
                     </div>
                   </div>

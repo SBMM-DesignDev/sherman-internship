@@ -13,7 +13,7 @@ const ItemDetails = () => {
   const [data, setData] = useState({});
 
   const {nftId} = useParams();
-  console.log(nftId)
+  
 
   const itemDetailNFT = async () => {
     if (!nftId) return;
@@ -44,16 +44,11 @@ const [img, setImg] = useState()
 
       setTimeout(() => {
         setImg(image);
-      }, 1500);
+      }, 300);
 
     }
 
-
-
-
-
-
-  })
+ }, [data.nftImage])
   
 
   return (

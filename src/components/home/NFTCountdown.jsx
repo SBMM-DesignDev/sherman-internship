@@ -1,6 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const NFTCountdown = ( {nft} ) => {
+
+     useEffect(() => {
+    
+          setTimeout(() => {
+             AOS.init({
+            duration: "1000"
+          });
+          }, 300);
+    
+      },[]);
 
     
     const [timeLeft, setTimeLeft] = useState({hours: 0, minutes: 0, seconds: 0})
@@ -20,7 +32,7 @@ const NFTCountdown = ( {nft} ) => {
             let expirationDate = nft.expiryDate - startTime;
            
 
-            if(expirationDate <= 0) {
+            if(expirationDate < 0) {
                 setTimeLeft("EXPIRED");
                 return timeLeft;
             }
@@ -47,15 +59,27 @@ const NFTCountdown = ( {nft} ) => {
  
 
     return(
-    <div id="timer" >
-  
-    
+      
+
+
+   
+    <div id="timer" data-aos="fade" data-aos-once="true" data-aos-anchor-placement="top-bottom">
+      { timeLeft === "EXPIRED" ? (
+        <>
+        <span>"EXPIRED"</span>
+        </>
+
+      ):(
+     <>
       <span className="timer__hours">{timeLeft.hours}h </span>
       
       <span className="timer__minutes">{timeLeft.minutes}m </span>
       
       <span className="timer__seconds">{timeLeft.seconds}s  </span>
-    </div>
+      </>
+        )
+    }
+    </div> 
     )
 
    

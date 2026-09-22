@@ -1,14 +1,33 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState, useRef} from 'react';
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css"
 import NFTCountdown from './NFTCountdown';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const SliderNewItems = ( { data } ) => {
+ const [isLoaded, setIsLoaded] = useState(false)
 
+
+   useEffect(() => {
+          let timer;
+
+           if(isLoaded) {
+           timer = setTimeout(() => {
+               AOS.init({
+              duration: "1000"});
+            },300)
+
+            return () => clearTimeout(timer)
+
+           }
+        },[isLoaded]);  
+        
+      
+        
     const settings = {
     dots: true,
     infinite: true,
@@ -54,10 +73,23 @@ return (
 
  const NFTCard = ( {nft} ) => {
 
+    const [isLoaded, setIsLoaded] = useState(false)
+    const timeoutRef = useRef(null);
+          
     
- 
-             const [isLoaded, setIsLoaded] = useState(false)
+          useEffect(() => {
+            return () => {
+              if(timeoutRef.current) {
+                clearTimeout(timeoutRef.current)
+              }
+            }
+          }, []) 
 
+          const imageOnLoad = () => {
+            timeoutRef.current = setTimeout(() => {
+              setIsLoaded(true);
+            }, 300)
+          };
              
              
              return( <div>
@@ -71,8 +103,12 @@ return (
                                     data-bs-placement="top"
                                     title="Creator: Monica Lucas"
                                   >
-                                    <img className="lazy" src={nft.authorImage} alt="" />
-                                    <i className="fa fa-check"></i>
+                                    <img className="lazy" src={nft.authorImage} alt="" data-aos="fade" data-aos-once="true" data-aos-anchor-placement="top-bottom"/>
+                                    <i className="fa fa-check" 
+                                        data-aos="fade"
+                                        data-aos-once="true"
+                                        data-aos-anchor-placement="top-bottom">
+                                    </i>
                                   </Link>
                                 </div>} 
 
@@ -119,16 +155,16 @@ return (
                                                           )} 
                                           <Link to={`/item-details/${nft.nftId}`}>
                                             <img
+                                              data-aos="fade"
+                                              data-aos-once="true"
+                                              data-aos-anchor-placement="top-bottom"
                                               src={nft.nftImage}
                                               className="lazy nft__item_preview"
-                                                    onLoad = {() => {
-                                                    setTimeout(() => { 
-                                                        setIsLoaded(true);
-                                                        }, 300)
-                                                    }}
+                                                    onLoad = {imageOnLoad}
                                                             
                                               alt=""
-                                              style={{ opacity: isLoaded ? 1 : 0, transition: "opacity 0.3s ease" }}
+                                             /* style={{ opacity: isLoaded ? 1 : 0, transition: "opacity 0.3s ease" }}*/
+                                              
                                             />
                                           </Link>
                                       </div>
@@ -162,12 +198,28 @@ return (
                                 {!isLoaded ? <div className="nft__item_info" style={{ display: "none"}}></div>
                                               :<div className="nft__item_info">
                                                   <Link to="/item-details">
-                                                    <h4>{nft.title}</h4>
+                                                    <h4 data-aos="fade"
+                                                        data-aos-once="true"
+                                                        data-aos-anchor-placement="top-bottom"
+                                                        >{nft.title}
+                                                    </h4>
                                                   </Link>
-                                                  <div className="nft__item_price">{nft.price}</div>
+                                                  <div className="nft__item_price" 
+                                                       data-aos="fade"
+                                                       data-aos-once="true"
+                                                       data-aos-anchor-placement="top-bottom">
+                                                    {nft.price}
+                                                    </div>
                                                   <div className="nft__item_like">
-                                                    <i className="fa fa-heart"></i>
-                                                    <span>{nft.likes}</span>
+                                                    <i className="fa fa-heart" 
+                                                        data-aos="fade"
+                                                        data-aos-anchor-placement="top-bottom">
+                                                    </i>
+                                                    <span data-aos="fade"
+                                                          data-aos-once="true"
+                                                          data-aos-anchor-placement="top-bottom">
+                                                            {nft.likes}
+                                                    </span>
                                                   </div>
                                                </div>}
                         </div>
