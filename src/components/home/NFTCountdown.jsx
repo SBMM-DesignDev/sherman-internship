@@ -52,7 +52,7 @@ const NFTCountdown = ( {nft} ) => {
            animationID = requestAnimationFrame(updateTimer); 
 
             return () => cancelAnimationFrame(animationID);
-    },[nft.expiryDate] )
+    },[nft.expiryDate, timeLeft] )
     
   
 

@@ -25,7 +25,6 @@ useEffect(() => {
             </div>
           </div>
           <div className="col-md-2 col-sm-4 col-6 mb-sm-30"  
-              data-aos="fade"
               data-aos="slide-left"
               data-aos-delay="0"
               data-aos-once="true"
@@ -36,7 +35,6 @@ useEffect(() => {
             </Link>
           </div>
           <div className="col-md-2 col-sm-4 col-6 mb-sm-30" 
-               data-aos="fade"
                data-aos="slide-left"
                data-aos-delay="100"
                data-aos-once="true"
@@ -47,7 +45,6 @@ useEffect(() => {
             </Link>
           </div>
           <div className="col-md-2 col-sm-4 col-6 mb-sm-30"
-               data-aos="fade"
                data-aos="slide-left"
                data-aos-delay="200"
                data-aos-once="true"
@@ -58,7 +55,6 @@ useEffect(() => {
             </Link>
           </div>
           <div className="col-md-2 col-sm-4 col-6 mb-sm-30" 
-               data-aos="fade"
                data-aos="slide-left"
                data-aos-delay="300"
                data-aos-once="true"
@@ -69,7 +65,6 @@ useEffect(() => {
             </Link>
           </div>
           <div className="col-md-2 col-sm-4 col-6 mb-sm-30" 
-               data-aos="fade"
                data-aos="slide-left"
                data-aos-delay="400"
                data-aos-once="true"
@@ -80,7 +75,6 @@ useEffect(() => {
             </Link>
           </div>
           <div className="col-md-2 col-sm-4 col-6 mb-sm-30" 
-               data-aos="fade"
                data-aos="slide-left"
                data-aos-delay="500"
                data-aos-once="true"

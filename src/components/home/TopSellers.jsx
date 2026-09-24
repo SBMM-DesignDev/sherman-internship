@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import AuthorImage from "../../images/author_thumbnail.jpg";
 import TopSellerInfo from "./TopSellerInfo.jsx";
 import axios from "axios";
 import AOS from 'aos';

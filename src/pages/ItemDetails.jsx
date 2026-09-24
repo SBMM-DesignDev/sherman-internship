@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EthImage from "../images/ethereum.svg";
 import { Link, useParams } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
-import nftImage from "../images/nftImage.jpg";
 import axios from "axios";
 
 const ItemDetails = () => {
@@ -15,7 +13,9 @@ const ItemDetails = () => {
   const {nftId} = useParams();
   
 
-  const itemDetailNFT = async () => {
+  
+  useEffect(() => {
+    const itemDetailNFT = async () => {
     if (!nftId) return;
     try{
        const response = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${nftId}`)
@@ -28,9 +28,7 @@ const ItemDetails = () => {
       console.log(error, "Error Fetching")
     }
   }
-
-  useEffect(() => {
-    itemDetailNFT()
+    itemDetailNFT();
   }, [nftId])
 
 const [img, setImg] = useState()
@@ -147,9 +145,9 @@ const [img, setImg] = useState()
                             
                             
                           }}>
-                            <h2 style={{ marginLeft: "24px",}}></h2>
+                            <div style={{ marginLeft: "24px",}}></div>
 
-                            <div className="item_info_counts">
+                            <div className="item_info_counts" style={{ marginTop: "24px",}}>
                               <div className="item_info_views"
                               style={{
                                 width: "50px",

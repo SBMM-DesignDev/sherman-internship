@@ -10,7 +10,7 @@ import 'aos/dist/aos.css';
 
 const SliderHotCollections = ( { data } ) => {
     
-    const [isLoaded, setIsLoaded] = useState(false)
+    const isLoaded = false
     
     
        useEffect(() => {
@@ -137,7 +137,7 @@ const NFTCard = ( {nft} ) => {
                          :
                          <div className="nft_coll_pp">
                               <Link to={`/author/${nft.authorId}`}>
-                                  <img className="lazy pp-coll" src={nft.authorImage} alt="Author's Picture" />
+                                  <img className="lazy pp-coll" src={nft.authorImage} alt="" />
                               </Link>
                               <i className="fa fa-check"></i>
                           </div>}

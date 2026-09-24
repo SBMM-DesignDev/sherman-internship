@@ -32,7 +32,6 @@ const Landing = () => {
               <h6>
                 <span className="text-uppercase id-color-2" 
                   data-aos="fade" 
-                  data-aos="zoom-in" 
                   data-aos-easing="ease-in-out">
                   Ultraverse Market
                 </span>
@@ -55,7 +54,6 @@ const Landing = () => {
               <Link className="btn-main lead" to="/explore" 
                 data-aos="fade" 
                 data-aos-duration="2500" 
-                data-aos="zoom-in" 
                 data-aos-easing="ease-in-out-back">
                 Explore
               </Link>
