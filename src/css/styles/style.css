@@ -13182,6 +13182,11 @@ a.read_more i {
   margin-bottom: 10px;
 }
 
+.nft_coll_Skeleton {
+  background: #ffffff;
+  border-radius: 10px;
+}
+
 .nft_coll.style-2 {
   border: none;
   background: none !important;
@@ -13669,6 +13674,7 @@ a.read_more i {
   justify-content: center;
   position: relative;
   height: 350px;
+  margin-top: 125px;
 }
 
 .nft__item_wrap a {
