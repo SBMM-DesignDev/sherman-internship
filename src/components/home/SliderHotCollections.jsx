@@ -25,15 +25,47 @@ const SliderHotCollections = ( { data } ) => {
                 return () => clearTimeout(timer)
     
                }
-            },[isLoaded]);  
+            },[isLoaded]);
+            
+            
+            const NextArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={`${className} custom-arrow`}
+      style={{ ...style }}
+      onClick={onClick}
+    >
+      <i className="fa fa-chevron-right"></i>
+    </div>
+  );
+};
+
+const PrevArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+     className={`${className} custom-arrow`}
+      style={{ ...style }}
+      onClick={onClick}
+    >
+      <i className="fa fa-chevron-left" ></i>
+    </div>
+  );
+};
 
 
     const settings = {
-    dots: true,
+   
     infinite: true,
     speed: 500,
     slidesToShow: 4,     
     slidesToScroll: 4,
+    prevArrow: <PrevArrow/>,
+    nextArrow: <NextArrow/>,
+    
+   
+    
     
     responsive: [         
       {
@@ -56,11 +88,11 @@ const SliderHotCollections = ( { data } ) => {
   };
 return (
           
-          <div >
+          <div className="slider-container">
               <Slider {...settings} >
                   {data.map((nft, id) => (
-                      <div key={id}>
-                          <NFTCard nft={nft}/>
+                      <div key={id}  >
+                          <NFTCard nft={nft} />
                       </div>
                       
                   ))}

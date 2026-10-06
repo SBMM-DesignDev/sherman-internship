@@ -102,6 +102,49 @@ a.a-underline:hover span {
 
 /* ================================================== */
 
+
+.slider-container .slick-slide > div {
+  position: relative;
+  padding: 0 4px; 
+  
+}
+
+/*.custom-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  background-color: #ffffff;
+  color: #333333;
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}*/
+
+.custom-arrow i {
+  color: #969595; /* Change to your desired color */
+  font-size:  16px; /* Adjust size if needed */
+}
+
+
+/*.custom-prev {
+  left: 0px; 
+}
+
+
+.custom-next {
+  right: 0px; 
+}
+
+.custom-arrow:hover {
+  background-color: #f0f0f0;
+}*/
+
 header {
   width: 100%;
   position: absolute;
