@@ -32,7 +32,7 @@ useEffect(() => {
 
 authorIdInfo();
 
-},[authorId || ownerId || creatorId])
+},[authorId, ownerId, creatorId])
   
 
     const userFollow = (event) => {
