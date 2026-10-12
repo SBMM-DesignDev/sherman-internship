@@ -9,16 +9,16 @@ const Author = () => {
    const [addFollower, setAddFollower] = useState(0)
     const [follow, setFollow] = useState(false);
 
-  const {authorId} = useParams();
-  
+  const {authorId, creatorId, ownerId} = useParams();
+   
 
 
 
 useEffect(() => {
   const authorIdInfo = async() => {
       try{
-        const response = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`)
-       
+        const response = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId || ownerId || creatorId}`)
+       console.log(response.data)
         setData(response.data)
         setAddFollower(response.data.followers || 0)
         
@@ -32,7 +32,7 @@ useEffect(() => {
 
 authorIdInfo();
 
-},[authorId])
+},[authorId || ownerId || creatorId])
   
 
     const userFollow = (event) => {

@@ -12,6 +12,8 @@ const ItemDetails = () => {
 
   const {nftId} = useParams();
   
+ 
+  
 
   
   useEffect(() => {
@@ -22,7 +24,7 @@ const ItemDetails = () => {
     
        
         setData(response.data);
-      
+        console.log(response.data);
       }
     catch(error) {
       console.log(error, "Error Fetching")
@@ -87,13 +89,14 @@ const [img, setImg] = useState()
                                 <h6>Owner</h6>
                                 <div className="item_author">
                                   <div className="author_list_pp">
-                                    <Link to="/author">
+                                    <Link to={`/author/${data.ownerId}`}>
                                       <img className="lazy" src={data.ownerImage} alt="" />
                                       <i className="fa fa-check"></i>
                                     </Link>
                                   </div>
                                   <div className="author_list_info">
-                                    <Link to="/author">{data.ownerName}</Link>
+                                    <Link to={`/author/${data.ownerId}`}>{data.ownerName}</Link>
+                                    
                                   </div>
                                 </div>
                               </div>
@@ -104,13 +107,13 @@ const [img, setImg] = useState()
                                 <h6>Creator</h6>
                                 <div className="item_author">
                                   <div className="author_list_pp">
-                                    <Link to="/author">
+                                    <Link to={`/author/${data.creatorId}`}>
                                       <img className="lazy" src={data.creatorImage} alt="" />
                                       <i className="fa fa-check"></i>
                                     </Link>
                                   </div>
                                   <div className="author_list_info">
-                                    <Link to="/author">{data.creatorName}</Link>
+                                    <Link to={`/author/${data.creatorId}`}>{data.creatorName}</Link>
                                   </div>
                                 </div>
                               </div>
