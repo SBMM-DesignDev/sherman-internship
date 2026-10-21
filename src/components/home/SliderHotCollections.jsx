@@ -133,12 +133,12 @@ const NFTCard = ( {nft} ) => {
             return( <div style={{ position: "relative", 
                           minHeight: "380px" }}>
                               {!isLoaded &&  (
-                                 <div className="skeleton nft_coll_Skeleton" 
+                                 <div className="skeleton nft_coll_Skeleton  skeleton-card" 
                                       style={{ 
                                         position: "absolute", 
                                         height:"160px",
                                         width: "100%",
-                                        backgroundColor: "gray",
+                                        backgroundColor: "#bcb9b9",
                                         top: 0, left: 0, right: 0, 
                                         bottom: 0, zIndex: 2,
                                         borderRadius: "15px",
@@ -177,14 +177,14 @@ const NFTCard = ( {nft} ) => {
                            
                       <div style={{ position: "relative", 
                           minHeight: "75px" }}>
-                       {!isLoaded && (<div className="skeleton nft_text_skeleton"
+                       {!isLoaded && (<div className="skeleton nft_text_skeleton skeleton-card"
                             style={{ 
                                         position: "absolute", 
                                         height:"24px",
                                         width:"100px",
                                         
-                                        backgroundColor: "gray",
-                                        top: 20, left: 85, right: 0, 
+                                        backgroundColor: "#bcb9b9",
+                                        top: 20, left: 35, right: 0, 
                                         bottom: 0, zIndex: 2,
                                         borderRadius: "2px",
                                          }}  />  

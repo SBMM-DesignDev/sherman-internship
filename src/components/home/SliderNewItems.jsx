@@ -124,7 +124,7 @@ return (
                         <div className="nft__item" >
                               
                                {!isLoaded ? <div className="author_list_pp" style={{display:"none"}} ></div> 
-                               :<div className="author_list_pp">
+                               :<div className="author_list_pp ">
                                   <Link
                                     to={`/author/${nft.authorId}`}
                                     data-bs-toggle="tooltip"
@@ -165,20 +165,20 @@ return (
                                       </div>
                                             
                                       <div style={{ position: "relative", 
-                                              minHeight: "380px" }}>
+                                              minHeight: "380px",
+                                              marginTop: "50px" }}>
                                                     {!isLoaded &&  (
-                                                      <div className="skeleton nft_coll_Skeleton" 
+                                                      <div className="skeleton nft_coll_Skeleton skeleton-card" 
                                                           style={{ 
                                                             position: "absolute", 
                                                             height:"250px",
-                                                            
-                                                            maxWidth:"250px",
                                                             width: "100%",
-                                                            backgroundColor: "gray",
-                                                            top: 0, left: 0, right: 0, 
-                                                            bottom: 0, zIndex: 5,
-                                                            borderRadius: "15px" }} />
-
+                                                           backgroundColor: "#bcb9b9",
+                                                            top:"0",
+                                                            left:"0",
+                                                            borderRadius: "15px", 
+                                                           zIndex: "2",}} />
+                                                            
                                                             
                                                           )} 
                                           <Link to={`/item-details/${nft.nftId}`}>
@@ -187,7 +187,7 @@ return (
                                               data-aos-once="true"
                                               data-aos-anchor-placement="top-bottom"
                                               src={nft.nftImage}
-                                              className="lazy nft__item_preview"
+                                              className="lazy nft__item_preview "
                                                     onLoad = {imageOnLoad}
                                                             
                                               alt=""
@@ -198,27 +198,26 @@ return (
                                       </div>
                                     </div>
                                 {!isLoaded &&  (
-                                                  <div className="skeleton nft_coll_Skeleton" 
+                                                  <div className="skeleton nft_coll_Skeleton skeleton-card" 
                                                       style={{ 
                                                         position: "absolute", 
-                                                        height:"16px",
+                                                        height:"18px",
                                                         width:"45px",
-                                                        backgroundColor: "gray",
-                                                        top: 440, left: 15, right: 0, 
-                                                        bottom: 0, zIndex: 5,
+                                                        backgroundColor: "#bcb9b9",
+                                                        bottom: "50px",
                                                         borderRadius: "2px" }} />
                                                )} 
                                
                                 {!isLoaded &&  (
-                                            <div className="skeleton nft_coll_Skeleton" 
+                                            <div className="skeleton nft_coll_Skeleton skeleton-card" 
                                             style={{ 
                                               position: "absolute", 
                                               height:"18px",
-                                              marginTop: "12px",
+                                              marginTop: "24px",
+                                              bottom: "20px",
                                               width:"40px",
-                                              backgroundColor: "gray",
-                                              top: 450, left: 15, right: 0, 
-                                              bottom: 0, zIndex: 5,
+                                             backgroundColor: "#bcb9b9",
+                                              
                                               borderRadius: "2px" }} />
                                               )} 
                           

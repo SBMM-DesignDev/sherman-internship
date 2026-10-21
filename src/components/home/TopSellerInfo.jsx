@@ -52,7 +52,7 @@ const TopSellerInfo = ( { seller } ) => {
                 
                     <Link to={`/author/${seller.authorId}`}>
                       <img
-                        className="lazy pp-author"
+                        className="lazy pp-author skeleton-card"
                         src={img.src}
                         alt=""
                         data-aos="fade"
@@ -95,12 +95,12 @@ const TopSellerInfo = ( { seller } ) => {
                          
                           
                       }}>
-                            <div  className="lazy pp-author"
+                            <div  className="lazy pp-author skeleton-card"
                             style={{
                               width: "50px",
                               height: "50px",
                               borderRadius: "50px",
-                              backgroundColor: "gray",
+                               backgroundColor: "#bcb9b9",
                               marginLeft: "8px",
                               marginTop: "8px",
                             
@@ -116,11 +116,11 @@ const TopSellerInfo = ( { seller } ) => {
                           width: "65%",
                           
                       }}>
-                                <div 
+                                <div className="skeleton-card"
                               style={{                            
                                 width: "95px",
                                 height: "16px",
-                                backgroundColor: "gray",
+                                backgroundColor: "#bcb9b9",
                                 marginTop: "16px",
                                 borderRadius: "2px",
                               
@@ -132,7 +132,7 @@ const TopSellerInfo = ( { seller } ) => {
                               style={{                                
                                   width: "14px",
                                   height: "16px",
-                                  backgroundColor: "gray",
+                                   backgroundColor: "#bcb9b9",
                                   marginTop: "4px",
                                   borderRadius: "2px",
                                   

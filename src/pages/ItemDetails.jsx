@@ -33,7 +33,7 @@ const ItemDetails = () => {
     itemDetailNFT();
   }, [nftId])
 
-const [img, setImg] = useState()
+const [img, setImg] = useState(false)
 
   useEffect(() => {
     
@@ -131,80 +131,87 @@ const [img, setImg] = useState()
                   
                   <>
                    <div  className="col-md-6 text-center" >
-                        <div /*className="img-fluid img-rounded mb-sm-30 nft-image"*/
+                        <div className="skeleton-card"/*className="img-fluid img-rounded mb-sm-30 nft-image"*/
                             style={{ width: "100%",
                                     height: "500px",
-                                    backgroundColor: "gray",
+                                    backgroundColor: "#bcb9b9",
                             }}>
                         </div>
                     </div>
                        <div className="col-md-6">
                           <div className="item_info"
-                          style={{
-                            width: "200px",
-                            height: "50px",
-                            backgroundColor: "gray",
-                            marginBottom: "24px",
+                       >
+                            <div className="skeleton-card"style={{ marginLeft: "24px",
+                              width: "200px",
+                              height: "50px",
+                              marginBottom: "24px",
+                             backgroundColor: "#bcb9b9",
+                             borderRadius: "2px",
                             
-                            
-                          }}>
-                            <div style={{ marginLeft: "24px",}}></div>
+                            }}></div>
 
-                            <div className="item_info_counts" style={{ marginTop: "24px",}}>
-                              <div className="item_info_views"
+                            <div className="item_info_counts " style={{ marginTop: "24px",}}>
+                              <div className="item_info_views skeleton-card"
                               style={{
                                 width: "50px",
                                 height: "30px",
-                                backgroundColor: "gray",
+                                backgroundColor: "#bcb9b9",
+                                borderRadius: "2px",
                               }}>
                                
                               </div>
-                              <div className="item_info_like"
+                              <div className="item_info_like skeleton-card"
                                style={{
                                 width: "50px",
                                 height: "30px",
-                                backgroundColor: "gray",
+                                backgroundColor: "#bcb9b9",
+                                borderRadius: "2px",
                               }}>
                                 
                               </div>
                             </div>
                           
                             
-                            <p style={{
+                            <p  className="skeleton-card" style={{
                                 width: "350px",
                                 height: "30px",
-                                backgroundColor: "gray",
+                                backgroundColor: "#bcb9b9",
+                                borderRadius: "2px",
                               }}></p>
-                            <p style={{
+                            <p className="skeleton-card" style={{
                                 width: "350px",
                                 height: "30px",
-                                backgroundColor: "gray",
+                                backgroundColor: "#bcb9b9",
+                                borderRadius: "2px",
                               }}>
                               </p>
-                            <p style={{
+                            <p className="skeleton-card" style={{
                                 width: "350px",
                                 height: "30px",
-                                backgroundColor: "gray",
+                               backgroundColor: "#bcb9b9",
+                               borderRadius: "2px",
                               }}></p>
                             <div className="d-flex flex-row">
                               <div className="mr40">
                                 <h6>Owner</h6>
                                 <div className="item_author">
-                                  <div className="author_list_pp"
+                                  <div className="author_list_pp skeleton-card "
                                   style={{
                                 width: "50px",
                                 height: "50px",
-                                backgroundColor: "gray",
+                               backgroundColor: "#bcb9b9",
                                 borderRadius: "50px",
+                              
                               }}>
                                     
                                   </div>
-                                  <div className="author_list_info"
+                                  <div className="author_list_info skeleton-card"
                                   style={{
                                 width: "50px",
                                 height: "20px",
-                                backgroundColor: "gray",
+                                backgroundColor: "#bcb9b9",
                                 marginLeft: "75px",
+                                borderRadius: "2px",
                               }}>
                                    
                                   </div>
@@ -220,22 +227,24 @@ const [img, setImg] = useState()
                                 }}>
                                   Creator</h6>
                                 <div className="item_author">
-                                  <div className="author_list_pp"
+                                  <div className="author_list_pp skeleton-card"
                                       style={{
                                 width: "50px",
                                 height: "50px",
-                                backgroundColor: "gray",
+                                backgroundColor: "#bcb9b9",
                                 borderRadius: "50px",
+                                
                                
                               }}>
                                   
                                   </div>
-                                  <div className="author_list_info"
+                                  <div className="author_list_info skeleton-card"
                                    style={{
                                 width: "50px",
                                 height: "20px",
-                                backgroundColor: "gray",
+                                backgroundColor: "#bcb9b9",
                                 marginLeft: "75px",
+                                borderRadius: "2px",
                                
                               }}>
                                     
@@ -244,11 +253,12 @@ const [img, setImg] = useState()
                               </div>
                               <div className="spacer-40"></div>
                               <h6>Price</h6>
-                              <div className="nft-item-price"
+                              <div className="nft-item-price skeleton-card"
                               style={{
                                 width: "50px",
                                 height: "20px",
-                                backgroundColor: "gray",
+                                backgroundColor: "#bcb9b9",
+                                borderRadius: "2px",
                                
                                
                               }}>

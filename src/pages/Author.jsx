@@ -8,6 +8,7 @@ const Author = () => {
   const [data, setData] = useState({});
    const [addFollower, setAddFollower] = useState(0)
     const [follow, setFollow] = useState(false);
+    const [loading, setLoading] = useState(true)
 
   const {authorId, creatorId, ownerId} = useParams();
    
@@ -17,13 +18,15 @@ const Author = () => {
 useEffect(() => {
   const authorIdInfo = async() => {
       try{
+        setLoading(true);
+
         const response = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId || ownerId || creatorId}`)
-       console.log(response.data)
-        setData(response.data)
-        setAddFollower(response.data.followers || 0)
+       console.log(response.data);
+        setData(response.data);
+        setAddFollower(response.data.followers || 0);
+
+        setLoading(false);
         
-        
-         
       }
       catch(error){
         console.log(error, "Error Fetching")
@@ -70,6 +73,65 @@ authorIdInfo();
               <div className="col-md-12">
                 <div className="d_profile de-flex">
                   <div className="de-flex-col">
+
+                    { loading ? (
+                      <>
+                      <div className="profile_avatar">
+                        <div  className="skeleton-card"
+                              style={{ 
+                              width: "150px",
+                              height: "150px",
+                              backgroundColor: "#bcb9b9",
+                              borderRadius: "50%",
+                        }}></div>
+
+                        <i className="fa fa-check"></i>
+                          <div className="profile_name" 
+                          style={{ display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "left",
+                                  justifyContent: "center",
+                                  
+                                  
+                          }}>
+                            <div className="skeleton-card"
+                            style={{ 
+                              width: "100px",
+                              height: "20px",
+                              borderRadius: "3px",
+                              backgroundColor:  "#bcb9b9",
+                              
+                            }}> </div>
+                             
+                            <div className="skeleton-card"
+                            style={{ 
+                              width: "150px",
+                              height: "20px",
+                              borderRadius: "3px",
+                              backgroundColor:  "#bcb9b9",
+                              marginTop: "8px",
+                               marginLeft: "50px",
+                            }}>
+                            </div>
+                            <div className="skeleton-card"
+                            style={{ 
+                              width: "125px",
+                              height: "20px",
+                              borderRadius: "3px",
+                              backgroundColor:  "#bcb9b9",
+                              marginTop: "8px",
+                              marginLeft: "24px",
+                               
+                            }}>
+                            </div>
+                             
+                       
+                      </div>
+                    </div>
+                      
+                      </>
+                    ) : (
+                      <>
                     <div className="profile_avatar">
                       <img src={data.authorImage} alt="" />
 
@@ -87,6 +149,8 @@ authorIdInfo();
                         </h4>
                       </div>
                     </div>
+                    </>
+                  )}
                   </div>
                   <div className="profile_follow de-flex">
                     <div className="de-flex-col">
@@ -104,7 +168,84 @@ authorIdInfo();
                    <div className="de_tab_content">
                       <div className="tab-1">
                         <div className="row">
-                          {data.nftCollection?.map((item, index) => (
+                          { loading ?
+                                new Array(8).fill(0).map((_, index) => (
+                                  <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
+                              <div className="nft__item">
+                                <div className="author_list_pp">
+                                  
+                                     <div className="skeleton-card"
+                                        style={{
+                                        width: "50px",
+                                        height: "50px",
+                                        backgroundColor: "#bcb9b9",
+                                        borderRadius: "50px",
+                                        }}>
+                                    </div>
+                                    <i className="fa fa-check"></i>
+                                 
+                                </div>
+                                <div className="nft__item_wrap">
+                                  <div className="nft__item_extra">
+                                    <div className="nft__item_buttons">
+                                      <button>Buy Now</button>
+                                      <div className="nft__item_share">
+                                        <h4>Share</h4>
+                                        <a href="/" target="_blank" rel="noreferrer">
+                                          <i className="fa fa-facebook fa-lg"></i>
+                                        </a>
+                                        <a href="/" target="_blank" rel="noreferrer">
+                                          <i className="fa fa-twitter fa-lg"></i>
+                                        </a>
+                                        <a href="/">
+                                          <i className="fa fa-envelope fa-lg"></i>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="skeleton-card"
+                                      style={{
+                                      width: "185px",
+                                      height: "200px",
+                                      backgroundColor: "#bcb9b9",
+                                      borderRadius: "5px",
+                                      
+                                      }}>
+                                    </div>
+                                </div>
+                                <div className="nft__item_info">
+                                  <div className="skeleton_explore skeleton-card"
+                                      style={{
+                                        width: "100px",
+                                        height: "18px",
+                                        backgroundColor: "#bcb9b9",
+                                        borderRadius: "3px"
+                                        }}>
+
+                                  </div>
+                                  <div className="nft__item_price skeleton_explore skeleton-card" 
+                                      style={{
+                                        width: "100px",
+                                        height: "18px",
+                                        backgroundColor: "#bcb9b9",
+                                        borderRadius: "3px",
+                                        marginTop: "3px",
+                                        }}>
+                                  </div>
+                                  <div className="nft__item_like">
+                                    <i className="fa fa-heart"
+                                      data-aos="fade"
+                                      data-aos-once="true"
+                                      data-aos-anchor-placement="top-bottom">
+                                  </i>
+                                  
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                          )) :
+                          
+                            data.nftCollection?.map((item, index) => (
                             <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
                               <div className="nft__item">
                                 <div className="author_list_pp">
